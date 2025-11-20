@@ -1,0 +1,180 @@
+[
+    {
+        "id": "flow_alerta",
+        "type": "tab",
+        "label": "Fluxo Alerta",
+        "disabled": false
+    },
+    {
+        "id": "d006550f5aad39b5",
+        "type": "json",
+        "z": "flow_alerta",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "9d7282055b812b80",
+                "a23f26a55ab5f454"
+            ]
+        ]
+    },
+    {
+        "id": "55bf9a45c16d5ddb",
+        "type": "debug",
+        "z": "flow_alerta",
+        "name": "debug botao",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "9d7282055b812b80",
+        "type": "influxdb out",
+        "z": "flow_alerta",
+        "influxdb": "9a572219f2535104",
+        "name": "Salvar Botao",
+        "measurement": "botao",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "mackenzie",
+        "bucket": "Projeto_IOT",
+        "x": 780,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f53317d0278403a9",
+        "type": "mqtt in",
+        "z": "flow_alerta",
+        "name": "",
+        "topic": "TESTMACK10428453/Ativado",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1c8df1387788366d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "d006550f5aad39b5",
+                "55bf9a45c16d5ddb"
+            ]
+        ]
+    },
+    {
+        "id": "a23f26a55ab5f454",
+        "type": "node-red-contrib-whatsapp-cmb-send-message",
+        "z": "flow_alerta",
+        "name": "",
+        "credtype": "account",
+        "account": "29bd7951c1e265e8",
+        "text": "⚠️ BOTÃO PRESSIONADO!",
+        "phonenumbervalue": "",
+        "apikeyvalue": "",
+        "apikeyinputtypemessage": "msg",
+        "phonenumberinputtypemessage": "msg",
+        "inputtypemessage": "str",
+        "rejectssl": false,
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "646fae02153e70ac"
+            ]
+        ]
+    },
+    {
+        "id": "646fae02153e70ac",
+        "type": "debug",
+        "z": "flow_alerta",
+        "name": "debug botao",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9a572219f2535104",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "timeout": "20",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "1c8df1387788366d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "29bd7951c1e265e8",
+        "type": "node-red-contrib-whatsapp-cmb-account",
+        "name": "Ana"
+    },
+    {
+        "id": "9f8a306c4df6ad59",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-influxdb": "0.7.0",
+            "node-red-contrib-whatsapp-cmb": "1.0.3"
+        }
+    }
+]

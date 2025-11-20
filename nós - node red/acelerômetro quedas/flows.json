@@ -1,0 +1,172 @@
+[
+    {
+        "id": "ddc0e7d266a5800c",
+        "type": "tab",
+        "label": "queda",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "jsonconv01",
+        "type": "json",
+        "z": "ddc0e7d266a5800c",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 490,
+        "y": 140,
+        "wires": [
+            [
+                "influxqueda",
+                "whatsappqueda"
+            ]
+        ]
+    },
+    {
+        "id": "debugqueda",
+        "type": "debug",
+        "z": "ddc0e7d266a5800c",
+        "name": "debug queda",
+        "active": true,
+        "tosidebar": true,
+        "complete": "true",
+        "x": 300,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "influxqueda",
+        "type": "influxdb out",
+        "z": "ddc0e7d266a5800c",
+        "influxdb": "9a572219f2535104",
+        "name": "Salvar Queda",
+        "measurement": "quedas",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "",
+        "retentionPolicyV18Flux": "",
+        "org": "mackenzie",
+        "bucket": "Projeto_IOT",
+        "x": 690,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "whatsappqueda",
+        "type": "node-red-contrib-whatsapp-cmb-send-message",
+        "z": "ddc0e7d266a5800c",
+        "name": "",
+        "credtype": "account",
+        "account": "29bd7951c1e265e8",
+        "text": "⚠️ QUEDA DETECTADA!",
+        "phonenumbervalue": "",
+        "apikeyvalue": "",
+        "apikeyinputtypemessage": "msg",
+        "phonenumberinputtypemessage": "msg",
+        "inputtypemessage": "str",
+        "rejectssl": false,
+        "x": 710,
+        "y": 180,
+        "wires": [
+            [
+                "b472e0e9192fb9c7"
+            ]
+        ]
+    },
+    {
+        "id": "07ded3eee40aa648",
+        "type": "mqtt in",
+        "z": "ddc0e7d266a5800c",
+        "name": "",
+        "topic": "TESTMACK10428453/Queda",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1c8df1387788366d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "jsonconv01",
+                "debugqueda"
+            ]
+        ]
+    },
+    {
+        "id": "b472e0e9192fb9c7",
+        "type": "debug",
+        "z": "ddc0e7d266a5800c",
+        "name": "debug queda",
+        "active": true,
+        "tosidebar": true,
+        "complete": "true",
+        "x": 850,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9a572219f2535104",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "timeout": "20",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "29bd7951c1e265e8",
+        "type": "node-red-contrib-whatsapp-cmb-account",
+        "name": "Ana"
+    },
+    {
+        "id": "1c8df1387788366d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2fea46ae62515573",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-influxdb": "0.7.0",
+            "node-red-contrib-whatsapp-cmb": "1.0.3"
+        }
+    }
+]
