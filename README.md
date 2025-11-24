@@ -102,3 +102,8 @@ Teste o botão e simule quedas no acelerômetro
 
 https://youtu.be/XE2cVaZNfPo
 
+---
+## Dashboard
+
+![fcc6331a-cb4c-44fb-95ae-67b84bc11b8f](https://github.com/user-attachments/assets/4b23356c-d9c8-4079-8c76-88f71073990d)
+
