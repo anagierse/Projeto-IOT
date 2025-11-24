@@ -18,6 +18,18 @@ Este projeto apresenta o desenvolvimento de um **sistema IoT integrado** para mo
 
 O sistema é composto por **dois ESP32 simulados no Wokwi**, que enviam dados através de **MQTT** para o **Node-RED**, responsável pela lógica de processamento e disparo das notificações.
 
+![10a9b45d-4545-4cb7-a5aa-963be400eb45](https://github.com/user-attachments/assets/4a931465-fc7c-4cab-bd67-3f4234e48777)
+Dispositivo com aceleometro
+
+![9fa1aae0-e140-4b7f-b4ab-a5c3e8e2f6f6](https://github.com/user-attachments/assets/5f8cf734-7ca3-496b-84f6-ab175ccc8367)
+Dispositivo com botão
+
+![de6336c3-d2f6-4b42-acd3-b5176ceb85fa](https://github.com/user-attachments/assets/e486c649-1287-4703-89fa-375f70f02031)
+Nó botão
+
+![3a930339-e1ad-456a-aaa9-8481f4068dc2](https://github.com/user-attachments/assets/342c50b4-9fa6-4476-9a9c-b81cdaa5db9c)
+Nó acelerometro
+
 Trata-se de uma solução de **baixo custo**, alinhada aos ODS 3 e 11 da Agenda 2030 da ONU e voltada à segurança da população idosa.
 
 ---
