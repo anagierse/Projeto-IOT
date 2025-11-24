@@ -96,3 +96,9 @@ Visualize os dados no Grafana
 
 Teste o botão e simule quedas no acelerômetro
 
+---
+
+## Link do Youtube
+
+https://youtu.be/XE2cVaZNfPo
+
